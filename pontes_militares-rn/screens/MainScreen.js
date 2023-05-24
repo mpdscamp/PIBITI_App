@@ -36,14 +36,14 @@ export default function MainScreen({ navigation }) {
     setm1,
     m2,
     setm2,
-    classeL1,
-    setClasseL1,
     classeR1,
     setClasseR1,
-    classeL2,
-    setClasseL2,
+    classeL1,
+    setClasseL1,
     classeR2,
     setClasseR2,
+    classeL2,
+    setClasseL2,
   } = useContext(AppContext);
 
   const data = {

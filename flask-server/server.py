@@ -35,6 +35,27 @@ def edit_file():
     sheet['I16'] = edit_data['condMetTemperatura_value']
     sheet['I18'] = edit_data['condMetChuva_value']
 
+    # Parte 3
+    if (edit_data['varlu_value'] != "" and edit_data['varn_value'] != "0"):
+        n1 = str( 4.5 * float(edit_data['varnv_value']) / float(edit_data['varlu_value']) )
+        n2 = str( float(edit_data['varnv_value']) / float(edit_data['varn_value']) )
+
+    sheet['I121'] = n1
+    sheet['I122'] = n2
+    sheet['I125'] = edit_data['m1_value']
+    sheet['I128'] = edit_data['m2_value']
+    
+    if (edit_data['varn_value'] == "1"):
+        sheet['I131'] = edit_data['classeR1_value']
+        sheet['F32'] = edit_data['classeR1_value']
+        sheet['I132'] = edit_data['classeL1_value']
+        sheet['G32'] = edit_data['classeL1_value']
+    elif (edit_data['varn_value'] == "2"):
+        sheet['I131'] = edit_data['classeR2_value']
+        sheet['F32'] = edit_data['classeR2_value']
+        sheet['I132'] = edit_data['classeL2_value']
+        sheet['G32'] = edit_data['classeL2_value']
+
     # Save the workbook
     workbook.save(planilha_rel)
 
