@@ -1,6 +1,8 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { TextInput } from "react-native-paper";
+
+import AppContext from "../context-provider/AppContext";
 
 const dados_lagartas = require("../dados/Dados_Lagartas.json");
 const dados_rodas = require("../dados/Dados_Rodas.json");
@@ -13,20 +15,36 @@ export default function MainScreen({ navigation }) {
   let [buttonPressed, setButtonPressed] = useState(false);
   let [vizButtonPressed, setVizButtonPressed] = useState(false);
 
-  const [varl, setl] = useState();
-  const [varlu, setlu] = useState();
-  const [vart, sett] = useState();
-  const [vard, setd] = useState();
-  const [vars, sets] = useState();
-  const [varb, setb] = useState();
-  const [varnv, setnv] = useState();
-  const [varn, setn] = useState();
-  const [m1, setm1] = useState();
-  const [m2, setm2] = useState();
-  const [classeR1, setClasseR1] = useState();
-  const [classeL1, setClasseL1] = useState();
-  const [classeR2, setClasseR2] = useState();
-  const [classeL2, setClasseL2] = useState();
+  const {
+    varl,
+    setl,
+    varlu,
+    setlu,
+    vart,
+    sett,
+    vard,
+    setd,
+    vars,
+    sets,
+    varb,
+    setb,
+    varnv,
+    setnv,
+    varn,
+    setn,
+    m1,
+    setm1,
+    m2,
+    setm2,
+    classeL1,
+    setClasseL1,
+    classeR1,
+    setClasseR1,
+    classeL2,
+    setClasseL2,
+    classeR2,
+    setClasseR2,
+  } = useContext(AppContext);
 
   const data = {
     varl,

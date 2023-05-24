@@ -1,36 +1,36 @@
-import React, { useState } from "react";
-import {
-  View,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  Platform,
-} from "react-native";
+import React, { useContext } from "react";
+import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
 import { TextInput } from "react-native-paper";
 import RNPickerSelect from "react-native-picker-select";
 import * as FileSystem from "expo-file-system";
-import * as Sharing from 'expo-sharing';
+import * as Sharing from "expo-sharing";
+import AppContext from "../context-provider/AppContext";
 
 export default function RelatorioScreen({ navigation }) {
-  const [relNum, setRelNum] = useState("1");
-  const [grpDataHora, setGrpDataHora] = useState("101800 Jun 20");
-  const [nomePostoGrad, setNomePostoGrad] = useState(
-    "2° Ten JOÃO / 10º BE Cmb"
-  );
-  const [para, setPara] = useState("S3 - 10º BE Cmb");
-  const [nomeNr, setNomeNr] = useState("RSC - 287");
-  const [grpDataHoraRec, setGrpDataHoraRec] = useState("10 0600 JUN 20");
-  const [cartaEscalaReg, setCartaEscalaReg] = useState(
-    "CANDELÁRIA - 1: 50 000"
-  );
-  const [contatoInimigo, setContatoInimigo] = useState("");
-  const [condMetTempo, setCondMetTempo] = useState(
-    "CÉU CLARO COM POUCAS NUVENS"
-  );
-  const [condMetTemperatura, setCondMetTemperatura] = useState(
-    "MÁX 27° C / MÍN 12° C"
-  );
-  const [condMetChuva, setCondMetChuva] = useState("01/JUN/20");
+  const {
+    relNum,
+    setRelNum,
+    grpDataHora,
+    setGrpDataHora,
+    nomePostoGrad,
+    setNomePostoGrad,
+    para,
+    setPara,
+    nomeNr,
+    setNomeNr,
+    grpDataHoraRec,
+    setGrpDataHoraRec,
+    cartaEscalaReg,
+    setCartaEscalaReg,
+    contatoInimigo,
+    setContatoInimigo,
+    condMetTempo,
+    setCondMetTempo,
+    condMetTemperatura,
+    setCondMetTemperatura,
+    condMetChuva,
+    setCondMetChuva,
+  } = useContext(AppContext);
 
   const editFile = async () => {
     await fetch("http://mpdscamp.pythonanywhere.com/edit-file", {
@@ -60,7 +60,7 @@ export default function RelatorioScreen({ navigation }) {
     FileSystem.downloadAsync(
       "http://mpdscamp.pythonanywhere.com/download-file",
       fileUri
-    )
+    );
 
     await Sharing.shareAsync(fileUri);
   };
