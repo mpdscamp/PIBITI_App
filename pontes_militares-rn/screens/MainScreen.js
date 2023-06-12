@@ -1,6 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
 import { TextInput } from "react-native-paper";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 import AppContext from "../context-provider/AppContext";
 
@@ -36,14 +37,14 @@ export default function MainScreen({ navigation }) {
     setm1,
     m2,
     setm2,
-    classeR1,
-    setClasseR1,
     classeL1,
     setClasseL1,
-    classeR2,
-    setClasseR2,
+    classeR1,
+    setClasseR1,
     classeL2,
     setClasseL2,
+    classeR2,
+    setClasseR2,
   } = useContext(AppContext);
 
   const data = {
@@ -251,7 +252,12 @@ export default function MainScreen({ navigation }) {
   };
 
   return (
-    <View style={styles.container}>
+    <View
+      resetScrollToCoords={{ x: 0, y: 0 }}
+      contentContainerStyle={styles.container}
+      scrollEnabled={false}
+      style={styles.container}
+    >
       <TouchableOpacity
         style={styles.vizButton}
         onPress={() => {
@@ -441,7 +447,7 @@ export default function MainScreen({ navigation }) {
         }}
       >
         <View
-          style={{ flex: 1, justifyContent: "flex-start", marginBottom: 10 }}
+          style={{ flex: 1, justifyContent: "flex-start", marginBottom: 15 }}
         >
           <TextInput
             mode="outlined"
