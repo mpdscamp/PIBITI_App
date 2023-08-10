@@ -27,7 +27,7 @@ def edit_file():
 
     # Checkbox
     if (edit_data['contatoInimigo_value'] in ['Houve contato com o inimigo', "Observado indícios de presença inimiga", "Não foi observada presença do inimigo"]):
-        sheet['A14'].value = edit_data['contatoInimigo_value']
+        sheet['A14'] = edit_data['contatoInimigo_value']
     else:
         return jsonify({'message': 'Selecione uma opção válida de presença inimiga!'})
 
@@ -56,9 +56,17 @@ def edit_file():
         sheet['I132'] = edit_data['classeL2_value']
         sheet['G32'] = edit_data['classeL2_value']
 
+    sheet['B32'] = edit_data['locGeog_value']
+    sheet['C32'] = edit_data['varl_value']
+    sheet['D32'] = edit_data['varlu_value']
+    sheet['E32'] = edit_data['gabarito']
+    sheet['H32'] = edit_data['distPAltTransp_value']
+    sheet['I32'] = edit_data['altNivAgua']
+    sheet['J32'] = edit_data['sitInfraSuper']
+
     # Save the workbook
     workbook.save(planilha_rel)
-
+        
     # Respond with a confirmation
     return jsonify({'message': 'Edit successful'})
 

@@ -23,6 +23,12 @@ export const AppProvider = ({ children }) => {
   );
   const [condMetChuva, setCondMetChuva] = useState("01/JUN/20");
 
+  const [locGeog, setLocGeog] = useState("");
+  const [gabarito, setGabarito] = useState("");
+  const [distPAltTransp, setDistPAltTransp] = useState("");
+  const [altNivAgua, setAltNivAgua] = useState("");
+  const [sitInfraSuper, setSitInfraSuper] = useState("");
+
   const [varl, setl] = useState();
   const [varlu, setlu] = useState();
   const [vart, sett] = useState();
@@ -63,6 +69,18 @@ export const AppProvider = ({ children }) => {
         setCondMetTemperatura,
         condMetChuva,
         setCondMetChuva,
+
+        locGeog,
+        setLocGeog,
+        gabarito,
+        setGabarito,
+        distPAltTransp,
+        setDistPAltTransp,
+        altNivAgua,
+        setAltNivAgua,
+        sitInfraSuper,
+        setSitInfraSuper,
+
         varl,
         setl,
         varlu,

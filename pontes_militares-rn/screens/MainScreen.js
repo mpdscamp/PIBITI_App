@@ -1,9 +1,16 @@
 import React, { useContext, useEffect, useState } from "react";
-import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  TouchableOpacity,
+  KeyboardAvoidingView,
+} from "react-native";
 import { TextInput } from "react-native-paper";
-import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
+import * as Device from 'expo-device';
 
 import AppContext from "../context-provider/AppContext";
+import { ScrollView } from "react-native-gesture-handler";
 
 const dados_lagartas = require("../dados/Dados_Lagartas.json");
 const dados_rodas = require("../dados/Dados_Rodas.json");
@@ -252,11 +259,8 @@ export default function MainScreen({ navigation }) {
   };
 
   return (
-    <View
-      resetScrollToCoords={{ x: 0, y: 0 }}
+    <ScrollView
       contentContainerStyle={styles.container}
-      scrollEnabled={false}
-      style={styles.container}
     >
       <TouchableOpacity
         style={styles.vizButton}
@@ -439,7 +443,8 @@ export default function MainScreen({ navigation }) {
         </View>
       </View>
 
-      <View
+      <KeyboardAvoidingView
+        behavior={Device.modelName === "ios" ? "padding" : "height"}
         style={{
           flexDirection: "row",
           justifyContent: "space-between",
@@ -465,7 +470,7 @@ export default function MainScreen({ navigation }) {
             }}
           />
         </View>
-      </View>
+      </KeyboardAvoidingView>
 
       <TouchableOpacity
         style={styles.vizButton}
@@ -507,18 +512,19 @@ export default function MainScreen({ navigation }) {
           )}
         </View>
       </View>
-    </View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: "center",
+    justifyContent: "top",
     alignItems: "center",
     backgroundColor: "#f0f4ff",
     paddingHorizontal: 30,
-    paddingTop: 20,
+    paddingTop: 50,
+    minHeight: '117%'
   },
   title: {
     fontSize: 13,

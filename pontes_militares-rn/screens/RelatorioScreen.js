@@ -1,5 +1,5 @@
 import React, { useContext } from "react";
-import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { View, StyleSheet, Text, TouchableOpacity, ScrollView } from "react-native";
 import { TextInput } from "react-native-paper";
 import RNPickerSelect from "react-native-picker-select";
 import * as FileSystem from "expo-file-system";
@@ -30,6 +30,18 @@ export default function RelatorioScreen({ navigation }) {
     setCondMetTemperatura,
     condMetChuva,
     setCondMetChuva,
+
+    locGeog,
+    setLocGeog,
+    gabarito,
+    setGabarito,
+    distPAltTransp,
+    setDistPAltTransp,
+    altNivAgua,
+    setAltNivAgua,
+    sitInfraSuper,
+    setSitInfraSuper,
+
     varl,
     varlu,
     vart,
@@ -64,6 +76,13 @@ export default function RelatorioScreen({ navigation }) {
         condMetTempo_value: condMetTempo,
         condMetTemperatura_value: condMetTemperatura,
         condMetChuva_value: condMetChuva,
+
+        locGeog_value: locGeog,
+        gabarito_value: gabarito,
+        distPAltTransp_value: distPAltTransp,
+        altNivAgua_value: altNivAgua,
+        sitInfraSuper_value: sitInfraSuper,
+
         varl_value: varl,
         varlu_value: varlu,
         vart_value: vart,
@@ -103,7 +122,7 @@ export default function RelatorioScreen({ navigation }) {
   };
 
   return (
-    <View style={styles.container}>
+    <ScrollView contentContainerStyle={styles.container}>
       <TouchableOpacity
         style={styles.vizButton}
         onPress={() => {
@@ -290,7 +309,7 @@ export default function RelatorioScreen({ navigation }) {
               setCondMetTemperatura(newEntryValue);
             }}
           />
-
+          
           <TextInput
             mode="outlined"
             outlineColor="#556B2F"
@@ -305,10 +324,84 @@ export default function RelatorioScreen({ navigation }) {
         </View>
       </View>
 
+      <Text style={styles.subtitle}>PARTE 2 - DADOS TÉCNICOS</Text>
+
+      <View
+        style={{
+          flexDirection: "row",
+          justifyContent: "space-between",
+          width: "100%",
+        }}
+      >
+        <View
+          style={{ flex: 1, justifyContent: "flex-start", marginBottom: 10 }}
+        >
+          <TextInput
+            mode="outlined"
+            outlineColor="#556B2F"
+            activeOutlineColor="#556B2F"
+            label="Localização (Coordenada Geográfica)"
+            value={locGeog}
+            onChangeText={(entryValue) => {
+              let newEntryValue = entryValue;
+              setLocGeog(newEntryValue);
+            }}
+          />
+
+          <TextInput
+            mode="outlined"
+            outlineColor="#556B2F"
+            activeOutlineColor="#556B2F"
+            label="Gabarito"
+            value={gabarito}
+            onChangeText={(entryValue) => {
+              let newEntryValue = entryValue;
+              setGabarito(newEntryValue);
+            }}
+          />
+
+          <TextInput
+            mode="outlined"
+            outlineColor="#556B2F"
+            activeOutlineColor="#556B2F"
+            label="Carta e Escala da Região"
+            value={distPAltTransp}
+            onChangeText={(entryValue) => {
+              let newEntryValue = entryValue;
+              setDistPAltTransp(newEntryValue);
+            }}
+          />
+
+          <TextInput
+            mode="outlined"
+            outlineColor="#556B2F"
+            activeOutlineColor="#556B2F"
+            label="Altura nível da água"
+            value={altNivAgua}
+            onChangeText={(entryValue) => {
+              let newEntryValue = entryValue;
+              setAltNivAgua(newEntryValue);
+            }}
+          />
+
+          <TextInput
+            mode="outlined"
+            outlineColor="#556B2F"
+            activeOutlineColor="#556B2F"
+            label="Situação de infraestrutura e superestrutura"
+            value={sitInfraSuper}
+            onChangeText={(entryValue) => {
+              let newEntryValue = entryValue;
+              setSitInfraSuper(newEntryValue);
+            }}
+          />
+        </View>
+      </View>
+
       <TouchableOpacity style={styles.button} onPress={buttonPressHandler}>
         <Text style={styles.buttonText}>Exportar dados para Arquivo Excel</Text>
       </TouchableOpacity>
-    </View>
+    </ScrollView>
   );
 }
 
@@ -320,6 +413,7 @@ const styles = StyleSheet.create({
     backgroundColor: "#f0f4ff",
     paddingHorizontal: 30,
     paddingTop: 50,
+    minHeight: '200%'
   },
   title: {
     fontSize: 14.7,
