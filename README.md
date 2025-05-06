@@ -1,9 +1,49 @@
-# PIBITI - Processo de Reconhecimento de Pontes Militares
+# PIBITI 2022/2023 - Sistema de Reconhecimento e Classificação de Pontes Militares
 
-Aplicativo desenvolvido em React Native (frontend) e Flask (backend) para automatizar os processos de reconhecimento e classificação de pontes militares.
+### Dependências Principais
 
-Para rodar o programa, abra o terminal no diretório pontes_militares-rn (comando *cd pontes_militares-rn*).
+- React Native
+- Expo
+- React Navigation
+- React Native Paper
+- React Native Gesture Handler
+- Flask (backend)
 
-Em seguida, instale todas as dependências, com o comando *npm install*
+## Instalação e Uso
 
-Para iniciar o aplicativo, digite o comando *npm start*. Então, aparecerá um QR Code na tela, que pode ser escaneado pelo dispositivo móvel.
+### Pré-requisitos
+
+- Node.js (versão 14 ou superior)
+- npm ou yarn
+- Expo CLI
+- Aplicativo Expo Go no dispositivo móvel ou emulador
+
+### Passos para Instalação
+
+1. Clone o repositório:
+   ```bash
+   git clone https://github.com/mpdscamp/PIBITI_App.git
+   cd pontes_militares-rn
+   ```
+
+2. Instale as dependências:
+   ```bash
+   npm install
+   # ou usando yarn
+   yarn install
+   ```
+
+3. Inicie o aplicativo:
+   ```bash
+   npm start
+   # ou usando yarn
+   yarn start
+   ```
+
+4. Use o aplicativo:
+   - Escaneie o QR Code exibido no terminal com o aplicativo Expo Go (Android) ou com a câmera (iOS)
+   - Ou execute em um emulador selecionando a opção apropriada no menu Expo
+
+---
+
+Desenvolvido como parte do Programa Institucional de Bolsas de Iniciação em Desenvolvimento Tecnológico e Inovação (PIBITI)
